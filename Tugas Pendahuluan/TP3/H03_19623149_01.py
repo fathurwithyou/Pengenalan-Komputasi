@@ -3,7 +3,7 @@
 # Deskripsi     : Program menentukan siapa saja nomor-nomor perwakilan yang tidak mendatangi acara
 
 # KAMUS
-# n, m : int
+# n, m, i: int
 # arr : list
 
 # ALGORITMA
@@ -17,7 +17,7 @@ arr = [0 for i in range(n+1)]
 # menambahkan frekuensi kehadiran
 for i in range(m):
     arr[int(input(f"Masukkan data ke-{i+1}: "))] += 1
-    
+
 print("Nomor perwakilan yang tidak datang: ", end="")
 
 # mencetak yang tidak hadir

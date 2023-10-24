@@ -3,7 +3,8 @@
 # Deskripsi     : Program menentukan banyaknya stasiun yang dapat dikunjungi dengan uang yang sudah ditentukan
 
 # KAMUS
-# uang, n: int
+# uang, n, maxi, start, biaya, i, j: int
+# arr : list of int
 
 # ALGORITMA
 # menerima input
@@ -15,20 +16,22 @@ for i in range(1, n):
     arr[i] = int(input(f"Masukkan harga stasiun ke-{i}: "))
 arr[0] = int(input(f"Masukkan harga stasiun ke-{n}: "))
 
+#inisialisasi
 maxi = 0
 start = 0
 for i in range(1, n+1):
     j = i
     biaya = 0
-    while biaya <= uang and j-i <= n:
-        biaya += arr[j%n]
+    # jika uang masih cukup dan penelusuran belum sampai n
+    while biaya + arr[j % n] <= uang and j-i+1 <= n:
+        biaya += arr[j % n]
         j += 1
-        
-    if j-i-1 > maxi:
-      maxi = j-i-1
-      start = i
-      
+    if j-i > maxi:
+        maxi = j-i
+        start = i
+
 if maxi == 0:
-  print("Tuan Leo kekurangan uang.")
+    print("Tuan Leo kekurangan uang.")
 else:
-  print(f"Tuan Leo dapat mengunjungi {maxi} stasiun dimulai dari stasiun ke-{start}.")
+    print(
+        f"Tuan Leo dapat mengunjungi {maxi} stasiun dimulai dari stasiun ke-{start}.")

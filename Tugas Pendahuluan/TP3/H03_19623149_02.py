@@ -3,8 +3,8 @@
 # Deskripsi     : Program menentukan bilangan terbesar ke-n
 
 # KAMUS
-# m, n, max_ke, cur_val : int
-# arr : list
+# m, n, i, j : int
+# arr : list of int
 
 # ALGORITMA
 # menerima input
@@ -21,13 +21,4 @@ for i in range(m):
         if arr[j] > arr[i]:
             arr[j], arr[i] = arr[i], arr[j]
 
-max_ke = 1  # inisialisasi max ke-berapa
-cur_val = arr[0]  # inisialisasi max
-for i in range(m):
-    if cur_val != arr[i]:
-        cur_val = arr[i]
-        max_ke += 1
-    if max_ke == n:
-        max_ans = arr[i]
-
-print(f"Nilai terbesar ke-{n} adalah {max_ans}")
+print(f"Nilai terbesar ke-{n} adalah {arr[n-1]}")
