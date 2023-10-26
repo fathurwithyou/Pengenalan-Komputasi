@@ -4,43 +4,22 @@
 
 # KAMUS
 # n, m, ans : int
-# arr : list of list of char
+# dp : list of list of char
 
 # ALGORITMA
 # menerima input
 n = int(input("Masukkan N: "))
 m = int(input("Masukkan M: "))
-arr = [0 for i in range(n)] # deklarasi array
-ans = 0 # deklarasi jawaban
-
-# fungsi yang digunakan untuk mengubah 1 menjadi 0
-def dfs(x, y):
-    i, j = x, y+1
-    if 0 <= i < n and 0 <= j < m:
-        while arr[i][j] == '1':
-            arr[i][j] = '0'
-            if 0 < j < m-1:
-                j += 1
-    i, j = x+1, y
-    if 0 <= i < n and 0 <= j < m:
-        while arr[i][j] == '1':
-            arr[i][j] = '0'
-            if 0 < i < n-1:
-                i += 1
-
-
+dp = [['0' for i in range(m+1)] for i in range(n+1)]
+cnt = 0
 print("Masukkan peta:")
-# menerima input
-for i in range(n):
-    arr[i] = list(input())
-for i in range(n):
-    for j in range(m):
-        if arr[i][j] == '1': # jika ada 1
-            ans += 1
-            arr[i][j] = '0'
-            dfs(i, j)
-if ans: #jika jawaban tidak 0
-    print(f"Terdapat {ans} kapal musuh pada peta")
+for i in range(1, n+1):
+    s = input()
+    for j in range(1, m+1):
+        dp[i][j] = s[j-1]
+        cnt += dp[i-1][j] == '0' and dp[i][j-1] == '0' and dp[i][j] == '1'
+if cnt:
+    print(f"Terdapat {cnt} kapal musuh pada peta")
 else:
     print("Tidak terdapat kapal musuh pada peta")
 '''

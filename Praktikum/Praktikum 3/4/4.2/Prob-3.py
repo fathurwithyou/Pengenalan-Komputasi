@@ -1,5 +1,4 @@
 s = input()
-
 l = 0
 for i in range(len(s)):
     if s[i] == 'ˆ':
@@ -15,6 +14,7 @@ for i in range(len(s)):
         print(end=" ")
         l = i + 1
 
+# Sample Input
 '''
 iniˆadalah*contoh*kataˆrahasia*
 
