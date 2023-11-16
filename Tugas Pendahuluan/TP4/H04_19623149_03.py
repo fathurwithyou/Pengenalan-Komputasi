@@ -11,15 +11,15 @@
 n = int(input("Masukkan N: "))
 m = int(input("Masukkan M: "))
 dp = [['0' for i in range(m+1)] for i in range(n+1)]
-cnt = 0
+ans = 0
 print("Masukkan peta:")
 for i in range(1, n+1):
     s = input()
     for j in range(1, m+1):
         dp[i][j] = s[j-1]
-        cnt += dp[i-1][j] == '0' and dp[i][j-1] == '0' and dp[i][j] == '1'
-if cnt:
-    print(f"Terdapat {cnt} kapal musuh pada peta")
+        ans += dp[i-1][j] == '0' and dp[i][j-1] == '0' and dp[i][j] == '1'
+if ans:
+    print(f"Terdapat {ans} kapal musuh pada peta")
 else:
     print("Tidak terdapat kapal musuh pada peta")
 '''

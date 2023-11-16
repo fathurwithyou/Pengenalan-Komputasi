@@ -13,10 +13,8 @@ def solve(n, k):
     dp[1] = n*2+dp[0]
     for i in range(2, k+1):
         dp[i] = (dp[i-1]-dp[i-2])*2+dp[i-1]
-    return dp[k] # mengeluarkan nilai dp[k]
+    return dp[k]
 
-# menerima input
 n = int(input("Masukkan N: "))
 k = int(input("Masukkan K: "))
-#cetak keluaran
 print(f"Terdapat {solve(n, k)} Bakteri Pengkombacter.")

@@ -11,31 +11,18 @@
 # menerima input
 m = int(input("Masukkan nilai m: "))
 n = int(input("Masukkan nilai n: "))
-# 2-dimensional array initialization
 arr = [[0 for i in range(n)] for i in range(m)]
-print(arr)
 for i in range(m):
     for j in range(n):
-        # menerima input
         arr[i][j] = int(
             input(f"Masukkan elemen matriks baris {i+1} kolom {j+1}: "))
-
-maxi = 0  # inisialisasi nilai maks
+maxi = 0 
 for i in range(m-1):
     for j in range(n-1):
-        # deklarasi setiap perulangan
-        summ = 0
-        odd = False
-        # mencari sum of 2x2 subarray
-        for k in range(i, i+2):
-            for l in range(j, j+2):
-                summ += arr[k][l]
-                if arr[k][l] & 1:  # jika subarray terdapat elemen ganjil
-                    odd = True
-        # jika subarray terdapat elemen ganjil dan sum of 2x2 subarray lebih besar dari yang sekarang
+        summ = arr[i][j] + arr[i+1][j] + arr[i][j+1] + arr[i+1][j+1]
+        odd = arr[i][j]&1 or arr[i][j+1]&1 or arr[i+1][j]&1 or arr[i+1][j+1]&1 
         if odd and summ > maxi:
             maxi = summ
-# jika maxi berubah
 if maxi:
     print(
         f"Jumlah maksimum dari submatriks 2x2 yang memiliki elemen ganjil adalah {maxi}")
